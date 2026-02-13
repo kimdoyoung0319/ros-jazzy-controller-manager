@@ -62,7 +62,7 @@ target_link_libraries(ros2_control_node PRIVATE
 
 if(CMAKE_SYSTEM_PROCESSOR STREQUAL "riscv64")
   target_link_libraries(controller_manager PUBLIC atomic)
-  target_link_libraries(ros2_control_node atomic)
+  target_link_libraries(ros2_control_node PRIVATE atomic)
 endif()
 
 if(BUILD_TESTING)

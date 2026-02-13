@@ -61,8 +61,7 @@ target_link_libraries(ros2_control_node PRIVATE
 )
 
 if(CMAKE_SYSTEM_PROCESSOR STREQUAL "riscv64")
-  target_link_libraries(controller_manager PUBLIC atomic)
-  target_link_libraries(ros2_control_node PRIVATE atomic)
+  target_link_options(ros2_control_node PRIVATE "LINKER:--push-state,--no-as-needed" "-latomic" "LINKER:--pop-state")
 endif()
 
 if(BUILD_TESTING)

@@ -58,8 +58,8 @@ target_link_libraries(controller_manager PUBLIC
 add_executable(ros2_control_node src/ros2_control_node.cpp)
 target_link_libraries(ros2_control_node PRIVATE
   controller_manager
+  atomic
 )
-target_link_options(ros2_control_node PRIVATE "-latomic")
 
 if(BUILD_TESTING)
   find_package(ament_cmake_gmock REQUIRED)
